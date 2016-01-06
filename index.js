@@ -2,8 +2,7 @@ var AWS = require('aws-sdk')
   , Promise = require('bluebird')
   ;
 
-module.exports = function(region, name)
-{
+module.exports = function(region, name) {
   var sqs = Promise.promisifyAll(
     new AWS.SQS({
       region: region
@@ -15,8 +14,7 @@ module.exports = function(region, name)
   });
 
   return create
-  .then(function (response)
-  {
+  .then(function (response) {
     return Promise.promisifyAll(
       new AWS.SQS({
         region: region,
